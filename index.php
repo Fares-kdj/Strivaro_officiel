@@ -43,7 +43,7 @@
                 href="#home"
                 class="menu-scroll active font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
               >
-                Home
+                Accueil
               </a>
             </li>
             <li>
@@ -59,9 +59,18 @@
                 href="./about.php"
                 class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
               >
-                À propos
+                À Propos
               </a>
             </li>
+            <li>
+              <a
+                href="./portfolio.php"
+                class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                Nos Projets
+              </a>
+            </li>
+            <li>
               <a
                 href="./audit.php"
                 class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"

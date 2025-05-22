@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $file = $_FILES['file'] ?? null;
 
     if (!$title || !$description || !$category || !$file) {
-        echo json_encode(['success' => false, 'message' => 'All fields are required.']);
+        echo json_encode(['success' => false, 'message' => 'Tous les champs sont requis.']);
         exit;
     }
 
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'video/mp4', 'video/webm', 'video/mov'];
 
     if (!in_array($file_type, $allowed_types)) {
-        echo json_encode(['success' => false, 'message' => 'File type not allowed. Only images and videos are accepted.']);
+        echo json_encode(['success' => false, 'message' => 'Type de fichier non autorisé. Seules les images et vidéos sont acceptées.']);
         exit;
     }
 
@@ -27,11 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "INSERT INTO projects (title, description, image_url, category, file_type) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$title, $description, $target_file, $category, $file_type]);
-        echo json_encode(['success' => true, 'message' => 'Project added successfully.']);
+        echo json_encode(['success' => true, 'message' => 'Projet ajouté avec succès.']);
     } else {
-        echo json_encode(['success' => false, 'message' => 'Error uploading the file.']);
+        echo json_encode(['success' => false, 'message' => 'Erreur lors de l\'upload du fichier.']);
     }
 } else {
-    echo json_encode(['success' => false, 'message' => 'Invalid request method.']);
+    echo json_encode(['success' => false, 'message' => 'Méthode de requête invalide.']);
 }
 ?>

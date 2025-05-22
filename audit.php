@@ -16,44 +16,78 @@
   </head>
 
   <body class="dark:bg-dark">
-    <!-- ===== Header Start ===== -->
+   <!-- ===== Header Start ===== -->
 <header class="header absolute top-0 left-0 w-full">
-      <div class="flex w-full flex-wrap px-5 lg:flex-nowrap lg:items-center lg:px-5 xl:px-10 2xl:px-20">
-        <div class="relative z-99 max-w-[250px] lg:w-full xl:max-w-[350px]">
-          <a href="index.php" class="inline-block">
-            <img src="src/images/logo/logo-dark.svg" alt="Strivaro logo" class="hidden h-[50px] dark:block" />
-            <img src="src/images/logo/logo-light.svg" alt="Strivaro logo" class="h-[50px] dark:hidden" />
-          </a>
-        </div>
-        <div class="menu-wrapper dark:bg-dark fixed top-0 left-0 z-50 h-screen w-full justify-center bg-white p-5 lg:visible lg:static lg:flex lg:h-auto lg:justify-start lg:bg-transparent lg:p-0 lg:opacity-100 dark:lg:bg-transparent">
-          <div class="w-full self-center">
-            <nav>
-              <ul class="navbar flex flex-col items-center justify-center space-y-5 text-center lg:flex-row lg:justify-start lg:space-y-0 lg:space-x-10">
-                <li>
-                  <a href="index.php#home" class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="index.php#features" class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white">
-                    Nos Services
-                  </a>
-                </li>
-                <li>
-                  <a href="about.php" class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white">
-                    À propos
-                  </a>
-                </li>
-                <li>
-                  <a href="./audit.php" class="menu-scroll active font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white">
-                    Audit
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-        <div
+  <div
+    class="flex w-full flex-wrap px-5 lg:flex-nowrap lg:items-center lg:px-5 xl:px-10 2xl:px-20"
+  >
+    <div class="relative z-99 max-w-[250px] lg:w-full xl:max-w-[350px]">
+      <a href="index.php" class="inline-block">
+        <img
+          src="src/images/logo/logo-dark.svg"
+          alt="logo"
+          class="hidden h-[50px] dark:block"
+        />
+        <img
+          src="src/images/logo/logo-light.svg"
+          alt="logo"
+          class="h-[50px] dark:hidden"
+        />
+      </a>
+    </div>
+    <div
+      class="menu-wrapper dark:bg-dark fixed top-0 left-0 z-50 h-screen w-full justify-center bg-white p-5 lg:visible lg:static lg:flex lg:h-auto lg:justify-start lg:bg-transparent lg:p-0 lg:opacity-100 dark:lg:bg-transparent"
+    >
+      <div class="w-full self-center">
+        <nav>
+          <ul
+            class="navbar flex flex-col items-center justify-center space-y-5 text-center lg:flex-row lg:justify-start lg:space-y-0 lg:space-x-10"
+          >
+            <li>
+              <a
+                href="./index.php"
+                class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                Accueil
+              </a>
+            </li>
+            <li>
+              <a
+                href="./index.php#features"
+                class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                Nos Services
+              </a>
+            </li>
+             <li>
+              <a
+                href="./about.php"
+                class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                À Propos
+              </a>
+            </li>
+            <li>
+              <a
+                href="./portfolio.php"
+                class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                Nos Projets
+              </a>
+            </li>
+            <li>
+              <a
+                href="./audit.php"
+                class="menu-scroll active font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                Audit
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div
       class="absolute top-1/2 right-5 z-50 flex -translate-y-1/2 items-center lg:static lg:translate-y-0"
     >
       <label
@@ -125,10 +159,9 @@
         </svg>
       </button>
     </div>
-      </div>
+  </div>
 </header>
-    <!-- ===== Header End ===== -->
-
+<!-- ===== Header End ===== -->
 
 
 <!-- ===== Contact & Free Audit Section Start ===== -->

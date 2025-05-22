@@ -3163,10 +3163,9 @@
 
 /* Grille de projets */
 .iso-box-section {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px; /* pour compenser le padding interne */
 }
 
 /* Carte de projet */
@@ -3179,6 +3178,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: calc(33.333% - 20px); /* 3 colonnes avec 20px de marge */
+  margin: 10px;
 }
 
 .dark .iso-box {
@@ -3244,4 +3245,39 @@
 
 .dark .iso-box p {
   color: #d1d5db; /* dark:text-white/70 */
+}
+.iso-box {
+  text-align: center; /* Centrer tous les textes dans la boîte */
+  align-items: center; /* Centrer les éléments si flex-column */
+}
+
+/* Responsive pour tablettes (<= 1024px) */
+@media (max-width: 1024px) {
+  .iso-box {
+    width: calc(50% - 20px); /* 2 colonnes */
+  }
+}
+
+/* Responsive pour mobiles (<= 640px) */
+@media (max-width: 640px) {
+  .filter-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-wrapper a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .iso-box {
+    width: 100%;
+    margin: 10px 0; /* espacement vertical seulement */
+  }
+
+  .iso-box-section {
+    margin: 0; /* suppression du margin négatif */
+    gap: 1rem;
+    flex-direction: column;
+  }
 }
