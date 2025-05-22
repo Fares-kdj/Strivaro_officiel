@@ -14,7 +14,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Strivaro - À propos</title>
+    <title>Strivaro - Portfolio</title>
     <link rel="icon" href="./src/images/logo/favicon.ico">
     <link href="style9.4.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
