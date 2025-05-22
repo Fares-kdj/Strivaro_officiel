@@ -13,7 +13,7 @@
     padding-top: 100px;
 }
     </style>
-  <head/>
+  </head>
 
   <body class="dark:bg-dark">
     <!-- ===== Header Start ===== -->
