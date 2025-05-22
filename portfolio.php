@@ -16,7 +16,8 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Strivaro - À propos</title>
     <link rel="icon" href="./src/images/logo/favicon.ico">
-    <link href="style9.2.css" rel="stylesheet">
+    <link href="style9.4.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <!-- Lightbox CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
   </head>
@@ -171,70 +172,115 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-    <!-- ===== Projects Section Start ===== -->
-    <section id="projects" class="relative z-40 overflow-hidden pt-12 pb-24 sm:pt-16 lg:pt-20 lg:pb-28" style="margin-top: 50px;">
-      <div class="px-4 xl:container">
-        <div class="mx-auto mb-12 max-w-[530px] text-center">
-          <span class="wow fadeInUp bg-primary/5 font-heading text-primary mb-8 inline-block rounded-full px-5 py-[10px] text-base dark:bg-white/10 dark:text-white" data-wow-delay=".2s">
-            <span class="bg-primary mr-2 inline-block h-2 w-2 rounded-full"></span>
-            Nos Projets
-          </span>
-          <h2 class="wow fadeInUp font-heading mb-5 text-2xl font-semibold sm:text-3xl md:text-4xl dark:text-white" data-wow-delay=".3s">
-            Découvrez Nos Réalisations
-          </h2>
-          <p class="wow fadeInUp text-dark-text mb-12 text-base dark:text-white/70" data-wow-delay=".4s">
-            Explorez une sélection de nos projets récents, mettant en avant notre expertise en design graphique, développement web, réalisation de films et montage vidéo.
-          </p>
-        </div>
-        <!-- Filtrage par catégorie -->
-        <ul class="wow fadeInUp flex justify-center space-x-4 mb-8 filter-wrapper" data-wow-delay=".5s">
-          <li><a href="#" data-filter="*" class="text-primary font-heading text-base selected">All</a></li>
-          <li><a href="#" data-filter=".Design-Graphique" class="text-primary font-heading text-base">Graphic Design</a></li>
-          <li><a href="#" data-filter=".Développement-Web" class="text-primary font-heading text-base">Web Development</a></li>
-          <li><a href="#" data-filter=".Réalisation-de-Films" class="text-primary font-heading text-base">FilmMaking</a></li>
-          <li><a href="#" data-filter=".Montage-Vidéo" class="text-primary font-heading text-base">Video Editing</a></li>
-        </ul>
+<!-- ===== Projects Section Start ===== -->
+<section id="projects" class="relative z-40 overflow-hidden pt-12 pb-24 sm:pt-16 lg:pt-20 lg:pb-28" style="margin-top: 50px;">
+  <div class="px-4 xl:container">
+    <div class="mx-auto mb-12 max-w-[530px] text-center">
+      <span class="wow fadeInUp bg-primary/5 font-heading text-primary mb-8 inline-block rounded-full px-5 py-[10px] text-base dark:bg-white/10 dark:text-white" data-wow-delay=".2s">
+        <span class="bg-primary mr-2 inline-block h-2 w-2 rounded-full"></span>
+        Nos Projets
+      </span>
+      <h2 class="wow fadeInUp font-heading mb-5 text-2xl font-semibold sm:text-3xl md:text-4xl dark:text-white" data-wow-delay=".3s">
+        Découvrez Nos Réalisations
+      </h2>
+      <p class="wow fadeInUp text-dark-text mb-12 text-base dark:text-white/70" data-wow-delay=".4s">
+        Explorez une sélection de nos projets récents, mettant en avant notre expertise en design graphique, développement web, réalisation de films et montage vidéo.
+      </p>
+    </div>
+    <!-- Filtrage par catégorie -->
+    <ul class="wow fadeInUp flex justify-center space-x-4 mb-8 filter-wrapper" data-wow-delay=".5s">
+      <li><a href="#" data-filter="*" class="text-primary font-heading text-base selected">All</a></li>
+      <li><a href="#" data-filter=".Design-Graphique" class="text-primary font-heading text-base">Graphic Design</a></li>
+      <li><a href="#" data-filter=".Développement-Web" class="text-primary font-heading text-base">Web Development</a></li>
+      <li><a href="#" data-filter=".Réalisation-de-Films" class="text-primary font-heading text-base">FilmMaking</a></li>
+      <li><a href="#" data-filter=".Montage-Vidéo" class="text-primary font-heading text-base">Video Editing</a></li>
+    </ul>
 
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 iso-box-section">
-          <div class="grid-sizer"></div>
-          <?php if (empty($projects)): ?>
-            <div class="text-center col-span-full">
-              <p class="text-dark-text dark:text-white/70">Aucun projet disponible pour le moment.</p>
-            </div>
-          <?php else: ?>
-            <?php foreach ($projects as $project): ?>
-              <div class="wow fadeInUp rounded-lg bg-white p-6 shadow-md dark:bg-dark-bg iso-box <?php echo htmlspecialchars(str_replace(' ', '-', $project['category'])); ?>" data-wow-delay=".3s">
-                <div class="mb-6">
-                  <?php
-                  // Construire le chemin comme dans la section portfolio
-                  $filePath = './portfolio/uploads/' . basename($project['image_url']);
-                  $fileType = $project['file_type'];
-                  ?>
-                  <?php if (!empty($project['image_url']) && strpos($fileType, 'image/') === 0 && file_exists($filePath)): ?>
-                    <a href="<?php echo htmlspecialchars($filePath); ?>" data-lightbox-gallery="projects-gallery">
-                      <img src="<?php echo htmlspecialchars($filePath); ?>" alt="<?php echo htmlspecialchars($project['title']); ?>" class="h-48 w-full object-cover rounded-md" loading="lazy" />
-                    </a>
-                  <?php elseif (!empty($project['image_url']) && strpos($fileType, 'video/') === 0 && file_exists($filePath)): ?>
-                    <video class="h-48 w-full object-cover rounded-md" controls>
-                      <source src="<?php echo htmlspecialchars($filePath); ?>" type="<?php echo htmlspecialchars($fileType); ?>">
-                      Votre navigateur ne supporte pas la lecture de vidéos.
-                    </video>
-                  <?php else: ?>
-                    <div class="h-48 w-full bg-gray-200 rounded-md flex items-center justify-center">
-                      <span class="text-gray-500">Aucun média disponible</span>
-                    </div>
-                  <?php endif; ?>
-                </div>
-                <h3 class="font-heading text-xl font-semibold text-dark-text dark:text-white mb-2"><?php echo htmlspecialchars($project['title']); ?></h3>
-                <p class="text-sm text-primary dark:text-white/70 mb-2"><?php echo htmlspecialchars($project['category']); ?></p>
-                <p class="text-base text-dark-text dark:text-white/70"><?php echo htmlspecialchars($project['description']); ?></p>
-              </div>
-            <?php endforeach; ?>
-          <?php endif; ?>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 iso-box-section">
+      <div class="grid-sizer"></div>
+      <?php if (empty($projects)): ?>
+        <div class="text-center col-span-full">
+          <p class="text-dark-text dark:text-white/70">Aucun projet disponible pour le moment.</p>
         </div>
-      </div>
-    </section>
-    <!-- ===== Projects Section End ===== -->
+      <?php else: ?>
+        <?php foreach ($projects as $project): ?>
+          <div class="wow fadeInUp rounded-lg bg-white p-6 shadow-md dark:bg-dark-bg iso-box <?php echo htmlspecialchars(str_replace(' ', '-', $project['category'])); ?>" data-wow-delay=".3s">
+            <!-- Carousel Container (Hidden by Default) -->
+            <div class="carousel-container hidden relative z-50 mb-6 bg-dark-bg dark:bg-dark-bg/90 rounded-md shadow-lg" data-project-id="<?php echo $project['id']; ?>">
+              <div class="swiper project-carousel-<?php echo $project['id']; ?>">
+                <div class="swiper-wrapper">
+                  <?php
+                  $image_urls = json_decode($project['image_urls'], true) ?: [];
+                  $fileType = $project['file_type'];
+                  if (empty($image_urls) && !empty($project['image_url'])) {
+                    $image_urls = [$project['image_url']];
+                  }
+                  foreach ($image_urls as $url):
+                    $filePath = './portfolio/uploads/' . basename($url);
+                    if (file_exists($filePath)):
+                  ?>
+                    <div class="swiper-slide">
+                      <?php if (strpos($fileType, 'image/') === 0): ?>
+                        <img src="<?php echo htmlspecialchars($filePath); ?>" alt="<?php echo htmlspecialchars($project['title']); ?>" class="w-full h-64 object-contain rounded-md" />
+                      <?php elseif (strpos($fileType, 'video/') === 0): ?>
+                        <video class="w-full h-64 object-contain rounded-md" controls>
+                          <source src="<?php echo htmlspecialchars($filePath); ?>" type="<?php echo htmlspecialchars($fileType); ?>">
+                          Votre navigateur ne supporte pas la lecture de vidéos.
+                        </video>
+                      <?php endif; ?>
+                      
+                    </div>
+                  <?php endif; endforeach; ?>
+                </div>
+                <div class="carousel-caption text-center mt-4">
+                        <h3 class="font-heading text-lg font-semibold text-white"><?php echo htmlspecialchars($project['title']); ?></h3>
+                        <p class="text-sm text-white/70"><?php echo htmlspecialchars($project['description']); ?></p>
+                      </div>
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+              </div>
+              <!-- Close Button -->
+              <button class="carousel-close absolute top-2 right-2 text-white bg-primary/50 hover:bg-primary rounded-full w-8 h-8 flex items-center justify-center">
+                &times;
+              </button>
+            </div>
+            <!-- Thumbnail -->
+            <div class="mb-6 relative group">
+              <?php
+              $primaryFilePath = !empty($image_urls) ? './portfolio/uploads/' . basename($image_urls[0]) : './portfolio/uploads/' . basename($project['image_url']);
+              ?>
+              <?php if (!empty($image_urls) && file_exists($primaryFilePath) && strpos($fileType, 'image/') === 0): ?>
+                <a href="#" class="carousel-toggle" data-project-id="<?php echo $project['id']; ?>">
+                  <img src="<?php echo htmlspecialchars($primaryFilePath); ?>" alt="<?php echo htmlspecialchars($project['title']); ?>" class="h-48 w-full object-cover rounded-md transition duration-300 group-hover:scale-105" loading="lazy" />
+                </a>
+              <?php elseif (!empty($image_urls) && file_exists($primaryFilePath) && strpos($fileType, 'video/') === 0): ?>
+                <video class="h-48 w-full object-cover rounded-md" controls>
+                  <source src="<?php echo htmlspecialchars($primaryFilePath); ?>" type="<?php echo htmlspecialchars($fileType); ?>">
+                  Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+              <?php elseif (!empty($project['image_url']) && file_exists($primaryFilePath)): ?>
+                <a href="#" class="carousel-toggle" data-project-id="<?php echo $project['id']; ?>">
+                  <img src="<?php echo htmlspecialchars($primaryFilePath); ?>" alt="<?php echo htmlspecialchars($project['title']); ?>" class="h-48 w-full object-cover rounded-md transition duration-300 group-hover:scale-105" loading="lazy" />
+                </a>
+              <?php else: ?>
+                <div class="h-48 w-full bg-gray-200 rounded-md flex items-center justify-center">
+                  <span class="text-gray-500">Aucun média disponible</span>
+                </div>
+              <?php endif; ?>
+            </div>
+            <h3 class="font-heading text-xl font-semibold text-dark-text dark:text-white mb-2"><?php echo htmlspecialchars($project['title']); ?></h3>
+            <p class="text-sm text-primary dark:text-white/70 mb-2"><?php echo htmlspecialchars($project['category']); ?></p>
+            <p class="text-base text-dark-text dark:text-white/70"><?php echo htmlspecialchars($project['description']); ?></p>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+  </div>
+</section>
+<!-- ===== Projects Section End ===== -->
 
     <!-- ===== Back To Top Start ===== -->
     <a href="javascript:void(0)" class="hover:shadow-signUp back-to-top bg-primary fixed right-8 bottom-8 left-auto z-999 hidden h-10 w-10 items-center justify-center rounded-xs text-white shadow-md transition">
@@ -243,58 +289,101 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- ===== Back To Top End ===== -->
 
     <!-- ===== Scripts ===== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-    <script>
-      // Section menu active
-      function onScroll(event) {
-        const sections = document.querySelectorAll(".menu-scroll");
-        const scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+ <script>
+  // Section menu active
+  function onScroll(event) {
+    const sections = document.querySelectorAll(".menu-scroll");
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
-        for (let i = 0; i < sections.length; i++) {
-          const currLink = sections[i];
-          const val = currLink.getAttribute("href");
-          let refElement;
-          if (val.includes("#")) {
-            refElement = document.querySelector(val.split("#")[1]);
-          } else {
-            refElement = document.querySelector("#about");
-          }
-          const scrollTopMinus = scrollPos + 73;
-          if (refElement && refElement.offsetTop <= scrollTopMinus && refElement.offsetTop + refElement.offsetHeight > scrollTopMinus) {
-            document.querySelectorAll(".menu-scroll").forEach(link => link.classList.remove("active"));
-            currLink.classList.add("active");
-          } else {
-            currLink.classList.remove("active");
-          }
-        }
+    for (let i = 0; i < sections.length; i++) {
+      const currLink = sections[i];
+      const val = currLink.getAttribute("href");
+      let refElement;
+      if (val.includes("#")) {
+        refElement = document.querySelector(val.split("#")[1]);
+      } else {
+        refElement = document.querySelector("#about");
       }
+      const scrollTopMinus = scrollPos + 73;
+      if (refElement && refElement.offsetTop <= scrollTopMinus && refElement.offsetTop + refElement.offsetHeight > scrollTopMinus) {
+        document.querySelectorAll(".menu-scroll").forEach(link => link.classList.remove("active"));
+        currLink.classList.add("active");
+      } else {
+        currLink.classList.remove("active");
+      }
+    }
+  }
 
-      window.document.addEventListener("scroll", onScroll);
+  window.document.addEventListener("scroll", onScroll);
 
-      // Initialiser Isotope pour le filtrage
-      document.addEventListener('DOMContentLoaded', function() {
-        const grid = document.querySelector('.iso-box-section');
-        const iso = new Isotope(grid, {
-          itemSelector: '.iso-box',
-          layoutMode: 'fitRows'
-        });
+  // Initialize Isotope and Swiper
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Isotope for filtering
+    const grid = document.querySelector('.iso-box-section');
+    if (grid) {
+      const iso = new Isotope(grid, {
+        itemSelector: '.iso-box',
+        layoutMode: 'fitRows'
+      });
 
-        // Filtrer les éléments au clic
-        const filters = document.querySelectorAll('.filter-wrapper a');
-        filters.forEach(filter => {
-          filter.addEventListener('click', function(e) {
-            e.preventDefault();
-            const filterValue = this.getAttribute('data-filter');
-            iso.arrange({ filter: filterValue });
+      // Filter items on click
+      const filters = document.querySelectorAll('.filter-wrapper a');
+      filters.forEach(filter => {
+        filter.addEventListener('click', function (e) {
+          e.preventDefault();
+          const filterValue = this.getAttribute('data-filter');
+          iso.arrange({ filter: filterValue });
 
-            // Mettre à jour la classe 'selected'
-            filters.forEach(f => f.classList.remove('selected'));
-            this.classList.add('selected');
-          });
+          // Update 'selected' class
+          filters.forEach(f => f.classList.remove('selected'));
+          this.classList.add('selected');
         });
       });
-    </script>
+    }
+
+    // Initialize Swiper for each project carousel
+    document.querySelectorAll('.carousel-container').forEach(container => {
+      const projectId = container.getAttribute('data-project-id');
+      new Swiper(`.project-carousel-${projectId}`, {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: `.project-carousel-${projectId} .swiper-button-next`,
+          prevEl: `.project-carousel-${projectId} .swiper-button-prev`,
+        },
+        pagination: {
+          el: `.project-carousel-${projectId} .swiper-pagination`,
+          clickable: true,
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+      });
+    });
+
+    // Toggle carousel visibility
+    document.querySelectorAll('.carousel-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const projectId = this.getAttribute('data-project-id');
+        const carousel = document.querySelector(`.carousel-container[data-project-id="${projectId}"]`);
+        carousel.classList.toggle('hidden');
+      });
+    });
+
+    // Close carousel
+    document.querySelectorAll('.carousel-close').forEach(button => {
+      button.addEventListener('click', function () {
+        this.closest('.carousel-container').classList.add('hidden');
+      });
+    });
+  });
+</script>
     <script defer src="./js/bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </body>
 </html>

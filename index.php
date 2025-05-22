@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Strivaro - Promesse forte & Appel à l’action immédiat</title>
     <link rel="icon" href="./src/images/logo/favicon.ico">
-    <link href="style9.2.css" rel="stylesheet">
+    <link href="style9.4.css" rel="stylesheet">
   </head>
 
   <body class="dark:bg-dark">

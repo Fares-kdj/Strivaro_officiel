@@ -17,7 +17,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de bord</title>
     <link rel="icon" href="../../src/images/logo/favicon.ico">
-    <link rel="stylesheet" href="./dstyle3.css">
+    <link rel="stylesheet" href="./dstyle4.css">
 </head>
 <body>
     <div class="app-container">
@@ -100,16 +100,33 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <button class="cell-more-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                         </button>
-                        <div class="product-cell image">
-                            <?php if (!empty($project['image_url']) && in_array($project['file_type'], ['image/jpeg', 'image/png', 'image/gif'])): ?>
-                                <img src="<?php echo htmlspecialchars($project['image_url']); ?>" alt="projet">
-                            <?php elseif (!empty($project['image_url']) && in_array($project['file_type'], ['video/mp4', 'video/webm', 'video/mov'])): ?>
-                                <video width="32" height="32" controls>
-                                    <source src="<?php echo htmlspecialchars($project['image_url']); ?>" type="<?php echo htmlspecialchars($project['file_type']); ?>">
-                                </video>
-                            <?php endif; ?>
-                            <span><?php echo htmlspecialchars($project['title']); ?></span>
-                        </div>
+                      <div class="product-cell image">
+    <?php
+    // Decode the image_urls JSON field
+    $image_urls = json_decode($project['image_urls'], true);
+    if (is_array($image_urls) && !empty($image_urls)) {
+        foreach ($image_urls as $index => $url) {
+            if (in_array($project['file_type'], ['image/jpeg', 'image/png', 'image/gif'])) {
+                echo '<img src="' . htmlspecialchars($url) . '" alt="projet-' . $index . '" style="max-width: 50px; margin-right: 5px;">';
+            } elseif (in_array($project['file_type'], ['video/mp4', 'video/webm', 'video/mov'])) {
+                echo '<video width="50" height="50" controls style="margin-right: 5px;">';
+                echo '<source src="' . htmlspecialchars($url) . '" type="' . htmlspecialchars($project['file_type']) . '">';
+                echo '</video>';
+            }
+        }
+    } else {
+        // Fallback to single image_url if image_urls is empty
+        if (!empty($project['image_url']) && in_array($project['file_type'], ['image/jpeg', 'image/png', 'image/gif'])) {
+            echo '<img src="' . htmlspecialchars($project['image_url']) . '" alt="projet" style="max-width: 50px;">';
+        } elseif (!empty($project['image_url']) && in_array($project['file_type'], ['video/mp4', 'video/webm', 'video/mov'])) {
+            echo '<video width="50" height="50" controls>';
+            echo '<source src="' . htmlspecialchars($project['image_url']) . '" type="' . htmlspecialchars($project['file_type']) . '">';
+            echo '</video>';
+        }
+    }
+    ?>
+    <span><?php echo htmlspecialchars($project['title']); ?></span>
+</div>
                         <div class="product-cell category"><span class="cell-label">Catégorie :</span><?php echo htmlspecialchars($project['category']); ?></div>
                         <div class="product-cell description"><span class="cell-label">Description :</span><?php echo htmlspecialchars($project['description']); ?></div>
                         <div class="product-cell actions">
@@ -145,9 +162,10 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="file">Fichier (images ou vidéos uniquement) :</label>
-                            <input type="file" id="file" name="file" class="form-control" accept="image/*,video/*" required>
-                        </div>
+    <label for="file">Images (jusqu'à 10 images ou vidéos) :</label>
+    <input type="file" id="file" name="files[]" class="form-control" accept="image/*,video/*" multiple required>
+    <small class="form-text">Vous pouvez sélectionner jusqu'à 10 fichiers (images ou vidéos).</small>
+</div>
                         <button class="app-content-headerButton" type="submit">Ajouter</button>
                     </form>
                 </div>
@@ -178,9 +196,10 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="edit-file">Fichier (images ou vidéos uniquement, facultatif) :</label>
-                            <input type="file" id="edit-file" name="file" class="form-control" accept="image/*,video/*">
-                        </div>
+    <label for="edit-file">Images (jusqu'à 10 images ou vidéos, facultatif) :</label>
+    <input type="file" id="edit-file" name="files[]" class="form-control" accept="image/*,video/*" multiple>
+    <small class="form-text">Vous pouvez sélectionner jusqu'à 10 fichiers (images ou vidéos). Les fichiers existants seront conservés sauf si remplacés.</small>
+</div>
                         <button class="app-content-headerButton" type="submit">Modifier</button>
                     </form>
                 </div>

@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'portfolio_db';
+$dbname = 'strivarop_db';
 $username = 'root'; // Par défaut pour XAMPP/WAMP
 $password = '';     // Par défaut pour XAMPP/WAMP
 
