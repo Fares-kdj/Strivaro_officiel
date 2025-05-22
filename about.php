@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Strivaro - À propos</title>
     <link rel="icon" href="./src/images/logo/favicon.ico">
-    <link href="style5.css" rel="stylesheet">
+    <link href="style9.1.css" rel="stylesheet">
   </head>
 
   <body class="dark:bg-dark">
