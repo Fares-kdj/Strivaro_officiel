@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Strivaro - Promesse forte & Appel à l’action immédiat</title>
     <link rel="icon" href="./src/images/logo/favicon.ico">
-    <link href="style9.4.css" rel="stylesheet">
+    <link href="style9.6.css" rel="stylesheet">
   </head>
 
   <body class="dark:bg-dark">
@@ -68,6 +68,14 @@
                 class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
               >
                 Nos Projets
+              </a>
+            </li>
+            <li>
+              <a
+                href="././blog-grids.php"
+                class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                Articles
               </a>
             </li>
             <li>
@@ -670,14 +678,14 @@
           </div>
         </div>
         <!-- Secondary CTA -->
-        <div class="wow fadeInUp text-center mt-8" data-wow-delay=".5s">
+        <!-- <div class="wow fadeInUp text-center mt-8" data-wow-delay=".5s">
           <a
             href="#services"
             class="secondary-cta inline-flex items-center text-lg font-medium transition"
           >
           Voir nos services en détail
           </a>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- ===== Features Section End ===== -->
@@ -2854,10 +2862,9 @@
     <!-- ===== CTA Section End ===== -->
 
     <!-- ===== Footer Start ===== -->
-    <footer
+<footer
   class="wow fadeInUp pt-14 sm:pt-20 lg:pt-[130px]"
-  data-wow-delay=".2s"
->
+  data-wow-delay=".2s">
   <div class="px-4 xl:container">
     <div class="-mx-4 flex flex-wrap">
       <div class="w-full px-4 sm:w-1/2 md:w-5/12 lg:w-3/12 xl:w-3/12">

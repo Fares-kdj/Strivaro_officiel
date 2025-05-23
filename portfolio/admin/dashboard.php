@@ -24,7 +24,7 @@ $blogs = $stmt_blogs->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de bord</title>
     <link rel="icon" href="../../src/images/logo/favicon.ico">
-    <link rel="stylesheet" href="./dstyle5.css">
+    <link rel="stylesheet" href="./dstyle8.css">
 </head>
 <body>
     <div class="app-container">
@@ -421,6 +421,6 @@ $blogs = $stmt_blogs->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </div>
-    <script src="./dscript5.js"></script>
+    <script src="./dscript6.js"></script>
 </body>
 </html>

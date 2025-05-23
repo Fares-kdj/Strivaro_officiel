@@ -1,5 +1,6 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 include '../includes/db.php';
 
 // Check if user is logged in
@@ -42,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             for ($i = 0; $i < count($_FILES['files']['name']) && $i < $max_files; $i++) {
                 if ($_FILES['files']['error'][$i] === UPLOAD_ERR_OK) {
                     if ($_FILES['files']['size'][$i] <= $max_size) {
-                        $file_type = $_FILES['files']['type'][$i];
+                        $file_type = mime_content_type($_FILES['files']['tmp_name'][$i]);
                         if (in_array($file_type, $allowed_types)) {
                             $file_name = uniqid() . '_' . basename($_FILES['files']['name'][$i]);
                             $file_path = $upload_dir . $file_name;
@@ -142,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 for ($i = 0; $i < count($_FILES['files']['name']) && $i < $max_files; $i++) {
                     if ($_FILES['files']['error'][$i] === UPLOAD_ERR_OK) {
                         if ($_FILES['files']['size'][$i] <= $max_size) {
-                            $file_type = $_FILES['files']['type'][$i];
+                            $file_type = mime_content_type($_FILES['files']['tmp_name'][$i]);
                             if (in_array($file_type, $allowed_types)) {
                                 $file_name = uniqid() . '_' . basename($_FILES['files']['name'][$i]);
                                 $file_path = $upload_dir . $file_name;

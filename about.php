@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Strivaro - À propos</title>
     <link rel="icon" href="./src/images/logo/favicon.ico">
-    <link href="style9.4.css" rel="stylesheet">
+    <link href="style9.6.css" rel="stylesheet">
   </head>
 
   <body class="dark:bg-dark">
@@ -67,6 +67,14 @@
                 class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
               >
                 Nos Projets
+              </a>
+            </li>
+            <li>
+              <a
+                href="././blog-grids.php"
+                class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                Articles
               </a>
             </li>
             <li>
@@ -364,7 +372,7 @@
       </div>
     </div>
     <div class="wow fadeInUp text-center mt-8" data-wow-delay=".5s">
-      <a href="index.php#features" class="secondary-cta inline-flex items-center text-lg font-medium transition">
+      <a href="./portfolio.php" class="secondary-cta inline-flex items-center text-lg font-medium transition">
         Découvrez nos projets
       </a>
     </div>

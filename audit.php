@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Strivaro - Audit Stratégique</title>
     <link rel="icon" href="./src/images/logo/favicon.ico">
-    <link href="style9.4.css" rel="stylesheet">
+    <link href="style9.6.css" rel="stylesheet">
     <style>
       body {
   overflow-x: hidden;
@@ -73,6 +73,14 @@
                 class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
               >
                 Nos Projets
+              </a>
+            </li>
+            <li>
+              <a
+                href="././blog-grids.php"
+                class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                Articles
               </a>
             </li>
             <li>

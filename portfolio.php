@@ -16,7 +16,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Strivaro - Portfolio</title>
     <link rel="icon" href="./src/images/logo/favicon.ico">
-    <link href="style9.4.css" rel="stylesheet">
+    <link href="style9.6.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <!-- Lightbox CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
@@ -80,6 +80,14 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 class="menu-scroll active font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
               >
                 Nos Projets
+              </a>
+            </li>
+            <li>
+              <a
+                href="././blog-grids.php"
+                class="menu-scroll font-heading text-dark-text hover:text-primary inline-flex items-center justify-center text-center text-base dark:hover:text-white"
+              >
+                Articles
               </a>
             </li>
             <li>
@@ -273,7 +281,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <h3 class="font-heading text-xl font-semibold text-dark-text dark:text-white mb-2"><?php echo htmlspecialchars($project['title']); ?></h3>
             <p class="text-sm text-primary dark:text-white/70 mb-2"><?php echo htmlspecialchars($project['category']); ?></p>
-            <p class="text-base text-dark-text dark:text-white/70"><?php echo htmlspecialchars($project['description']); ?></p>
+            
           </div>
         <?php endforeach; ?>
       <?php endif; ?>
@@ -281,6 +289,8 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </section>
 <!-- ===== Projects Section End ===== -->
+<!-- Carousel Overlay -->
+<div class="carousel-overlay fixed inset-0 bg-black bg-opacity-50 z-50 hidden"></div>
 
     <!-- ===== Back To Top Start ===== -->
     <a href="javascript:void(0)" class="hover:shadow-signUp back-to-top bg-primary fixed right-8 bottom-8 left-auto z-999 hidden h-10 w-10 items-center justify-center rounded-xs text-white shadow-md transition">
