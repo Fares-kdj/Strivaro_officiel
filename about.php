@@ -1083,6 +1083,6 @@
 
       window.document.addEventListener("scroll", onScroll);
     </script>
-    <script defer src="bundle.js"></script>
+    <script defer src="./js/bundle.js"></script>
   </body>
 </html>
